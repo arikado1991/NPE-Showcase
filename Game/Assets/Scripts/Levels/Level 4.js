@@ -19,7 +19,7 @@ function GenerateLevel(grid:Grid){
 
 function setDestination(grid:Grid, location:Vector3){
 	grid.getSpaceBox(location).destination=true;
-	grid.getSpaceBox(location).prefab.transform.GetChild(7).renderer.material=materialDest;
+	grid.getSpaceBox(location).prefab.transform.GetChild(7).GetComponent.<Renderer>().material=materialDest;
 }
 
 var windowRect : Rect = Rect (Screen.width/2-150, 10, 300, 200);

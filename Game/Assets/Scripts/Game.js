@@ -10,7 +10,6 @@ var level:          int;
 var nextScene:		String;
 var customSkin: 	GUISkin;
 var setting: 		SettingScript;
-var timeLimit:		float[]; 
 static var numPizza:		int;
 
 function Awake () {

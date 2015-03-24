@@ -7,13 +7,13 @@ var counter: int;
 var processing: boolean = false;
 var fontSize : float;
 var mode: boolean;
-
+var done: boolean;
 
 
 function Start()
 {
 	customSkin.box.fontSize = Screen.height*.05;
-
+	done = false;
 	fetchDialogue();	
 	counter = 0;
 }
@@ -48,6 +48,9 @@ function OnGUI () {
 	
 	
 //	GUILayout.EndArea();
-	if (counter >= texts.Length)
+	if (counter >= texts.Length && !done){
+		done = true;
+		Debug.Log("loading");
 		BroadcastMessage("LoadScene");
+	}
 }

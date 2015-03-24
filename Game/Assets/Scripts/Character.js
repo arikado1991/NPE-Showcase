@@ -81,10 +81,12 @@ class Character extends System.Object
 	var moveTime: float = 0.4;
 	function move( dir: Dir, grid: Grid )
 	{	
-		var fig: Transform= prefab.FindGameObjectWithTag("Rufus").transform;
+		
+//		Debug.Log(!fig);
 		var time: float = moveTime;
 		var below: SpaceBox;
-		if (isMoving ) {;return;}
+		if (isMoving ) return;
+		
 		if (this.dir != dir){
 			this.dir = dir;
 			var finalR: float;
@@ -101,8 +103,9 @@ class Character extends System.Object
 			default:
 				finalR = 3;				
 			}
-			fig.transform.RotateAround(fig.transform.position, Vector3.up,90*(this.dirction-finalR));
-			this.dirction=finalR;
+			//.Rotate(Vector3.up,90);//*(this.dirction-finalR));
+			prefab.BroadcastMessage("Spin", 90*(this.dirction-finalR));
+			this.dirction=finalR;//Debug.Log("Spin");
 			return;
 		}
 
